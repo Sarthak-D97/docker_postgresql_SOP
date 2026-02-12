@@ -90,8 +90,7 @@ Go to the [Docker Desktop Official Site](https://www.docker.com/products/docker-
 4. **Identify your Chip:** * `Apple Silicon` (M1/M2/M3) users select the ARM64 version.
 * `Intel` users select the x86_64 version.
 
-
-
+<img src="./assets/docker.png" alt="Alt text" width="800">
 ---
 
 <a name="phase-3"></a>
@@ -106,6 +105,7 @@ Go to the [Docker Desktop Official Site](https://www.docker.com/products/docker-
 
 
 4. **Initial Launch:** Open TablePlus. It may ask to install a helper tool for the CLI; click **Install**.
+<img src="./assets/tableplus.png" alt="Alt text" width="800">
 
 ---
 
@@ -141,6 +141,7 @@ docker run -d \
 
 ```
 
+<img src="./assets/command.png" alt="Alt text" width="800">
 ### 🔍 Command Breakdown:
 
 * `--name`: The nickname for your container.
@@ -149,8 +150,8 @@ docker run -d \
 * `-v`: Attaches the volume we created to the internal Postgres data folder.
 * `--restart always`: Ensures the DB starts automatically when you reboot your PC.
 
-<img src="./assets/dcoker_img.png" alt="Alt text" width="500">
-<img src="./assets/dcoker_container.png" alt="Alt text" width="500">
+<img src="./assets/docker_img.png" alt="Alt text" width="800">
+<img src="./assets/docker_container.png" alt="Alt text" width="800">
 ---
 
 <a name="phase-5"></a>
@@ -171,7 +172,9 @@ docker run -d \
 
 5. **Security:** Set **SSL Mode** to `Disable` (standard for local dev).
 6. **Test & Connect:** Click **Test**. If the credentials turn green, click **Save** and then **Connect**.
-
+<img src="./assets/tableplus_connection.png" alt="Alt text" width="800">
+<img src="./assets/tableplus_form.png" alt="Alt text" width="800">
+<img src="./assets/tableplus_dashboard.png" alt="Alt text" width="800">
 ---
 
 <a name="phase-6"></a>

@@ -38,6 +38,7 @@ Before starting, understand the flow:
 *Note: If you are on macOS, skip to Phase 2.*
 
 Windows requires a Linux backend to run Docker containers natively.
+<img src="./assets/win_wsl_error.png.png" alt="Alt text" width="800">
 
 ### 1.1 Enable WSL Features
 
@@ -210,7 +211,7 @@ VALUES ('Sarthak', 'Next.js / PostgreSQL');
 SELECT * FROM developers;
 
 ```
-
+<img src="./assets/tableplus_dashboard.png" alt="Alt text" width="800">
 ### 6.3 Common Troubleshooting
 
 * **Port 5432 is already in use:** You likely have a local version of Postgres installed outside of Docker. Either stop that service or change the port in the Docker command to `-p 5433:5432`.

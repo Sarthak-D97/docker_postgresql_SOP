@@ -1,25 +1,29 @@
-## 🐘 Professional SOP: PostgreSQL Environment Setup
+# 🐘 Professional SOP: PostgreSQL Environment Setup
+
 ---
 
 **Stack:** Docker Desktop + WSL 2 (Windows) / Native (macOS) + TablePlus UI
+
 **Author:** Sarthak Chauhan
+
 **Date:** February 12, 2026
 
 ---
 
 ## 📑 Table of Contents
 
-1. [Prerequisites & System Architecture](https://www.google.com/search?q=%231-prerequisites)
-2. [Phase 1: Windows Subsystem for Linux (WSL 2) Setup](https://www.google.com/search?q=%23phase-1)
-3. [Phase 2: Docker Desktop Installation](https://www.google.com/search?q=%23phase-2)
-4. [Phase 3: TablePlus UI Installation](https://www.google.com/search?q=%23phase-3)
-5. [Phase 4: Deploying PostgreSQL via Docker](https://www.google.com/search?q=%23phase-4)
-6. [Phase 5: Connecting TablePlus to PostgreSQL](https://www.google.com/search?q=%23phase-5)
-7. [Phase 6: Maintenance & Troubleshooting](https://www.google.com/search?q=%23phase-6)
+1. [Prerequisites & System Architecture](https://www.google.com/search?q=%230-prerequisites--system-architecture)
+2. [Phase 1: Docker Desktop & Environment Setup](https://www.google.com/search?q=%23phase-1-docker-desktop--environment-setup)
+* [1.1 Windows: WSL 2 Backend (Essential)](https://www.google.com/search?q=%2311-windows-wsl-2-backend-essential)
+* [1.2 macOS: Architecture Identification](https://www.google.com/search?q=%2312-macos-architecture-identification)
+
+
+3. [Phase 2: TablePlus UI Installation](https://www.google.com/search?q=%23phase-2-tableplus-ui-installation)
+4. [Phase 3: Deploying PostgreSQL via Docker](https://www.google.com/search?q=%23phase-3-deploying-postgresql-via-docker)
+5. [Phase 4: Connecting TablePlus to PostgreSQL](https://www.google.com/search?q=%23phase-4-connecting-tableplus-to-postgresql)
+6. [Phase 5: Maintenance & Troubleshooting](https://www.google.com/search?q=%23phase-5-maintenance--troubleshooting)
 
 ---
-
-<a name="1-prerequisites"></a>
 
 ## 0. Prerequisites & System Architecture
 
@@ -31,103 +35,96 @@ Before starting, understand the flow:
 
 ---
 
-<a name="phase-1"></a>
+## Phase 1: Docker Desktop & Environment Setup
 
-## Phase 1: Windows Subsystem for Linux (WSL 2) Setup
+### 1.1 Windows: WSL 2 Backend (Essential)
 
-*Note: If you are on macOS, skip to Phase 2.*
+*Note: If you are on macOS, skip to section 1.2.*
 
-Windows requires a Linux backend to run Docker containers natively.
-<img src="./assets/win_wsl_error.png" alt="Alt text" width="800">
+Windows requires a Linux backend to run Docker containers natively. If you encounter kernel errors, use the steps below.
 
-### 1.1 Enable WSL Features
+<img src="./assets/win_wsl_error.png" alt="WSL Error Example" width="800">
+
+#### **Steps to Enable WSL Features:**
 
 1. Open **PowerShell** or **Command Prompt** as **Administrator**.
-2. Execute the following command:
+2. Execute the following command to install WSL:
 ```powershell
 wsl --install
 
 ```
 
 
-3. If WSL is already installed, ensure it is updated to the latest kernel version:
+3. Ensure your kernel is fully updated:
 ```powershell
 wsl --update
 
 ```
 
 
-
-### 1.2 Set WSL 2 as Default
-
-Ensure all new Linux distributions use version 2:
-
+4. Set WSL 2 as your default version:
 ```powershell
 wsl --set-default-version 2
 
 ```
 
----
-<img src="./assets/wsl_update.png" alt="Alt text" width="800">
-<a name="phase-2"></a>
 
-## Phase 2: Docker Desktop Installation
 
-### 2.1 Download the Installer
+<img src="./assets/wsl_update.png" alt="WSL Update Command Success" width="800">
 
-Go to the [Docker Desktop Official Site](https://www.docker.com/products/docker-desktop/) and select your OS.
+#### **Install Docker Desktop (Windows):**
 
-### 2.2 Installation Steps (Windows)
+1. Download the installer from the [Docker Desktop Official Site](https://www.docker.com/products/docker-desktop/).
+2. Run the `.exe` installer.
+3. **Important:** Ensure the checkbox **"Use WSL 2 instead of Hyper-V"** is checked.
+4. Restart your computer if prompted.
 
-1. Run the `.exe` installer.
-2. **Important:** Ensure the checkbox **"Use WSL 2 instead of Hyper-V"** is checked.
-3. Once finished, Windows will likely require a **System Restart**.
-
-### 2.3 Installation Steps (macOS)
-
-1. Open the `.dmg` file.
-2. Drag the **Docker** icon into the **Applications** folder.
-3. Launch Docker from Applications.
-4. **Identify your Chip:** * `Apple Silicon` (M1/M2/M3) users select the ARM64 version.
-* `Intel` users select the x86_64 version.
-
-<img src="./assets/docker.png" alt="Alt text" width="800">
 ---
 
-<a name="phase-3"></a>
+### 1.2 macOS: Architecture Identification
 
-## Phase 3: TablePlus UI Installation
+1. Identify your chip: Click **Apple () Menu** > **About This Mac**.
+2. Download the correct installer from [Docker Desktop](https://www.docker.com/products/docker-desktop/):
+* **Apple Silicon:** (M1/M2/M3) Select the ARM64 version.
+* **Intel:** Select the x86_64 version.
 
-1. Visit [TablePlus.com](https://tableplus.com/).
-2. Download the version corresponding to your OS.
-3. **Installation:**
+
+3. Open the `.dmg` file and drag the **Docker** icon into the **Applications** folder.
+
+<img src="./assets/docker.png" alt="Docker Desktop Installation View" width="800">
+
+---
+
+## Phase 2: TablePlus UI Installation
+
+1. Visit [TablePlus.com](https://tableplus.com/) and download the version for your OS.
+2. **Installation:**
 * **Windows:** Follow the standard `.exe` setup wizard.
-* **macOS:** Open the `.dmg` and move to Applications.
+* **macOS:** Drag the `.app` to your Applications folder.
 
 
-4. **Initial Launch:** Open TablePlus. It may ask to install a helper tool for the CLI; click **Install**.
-<img src="./assets/tableplus.png" alt="Alt text" width="800">
+3. **Initial Launch:** Open TablePlus. Click **Install** if prompted to add helper tools for the CLI.
+
+<img src="./assets/tableplus.png" alt="TablePlus Initial Setup Screen" width="800">
 
 ---
 
-<a name="phase-4"></a>
+## Phase 3: Deploying PostgreSQL via Docker
 
-## Phase 4: Deploying PostgreSQL via Docker
+We use **Data Persistence** to ensure that if you delete the container, your data remains safe in a Docker Volume.
 
-We will deploy PostgreSQL with **Data Persistence**. This ensures that if you delete the container, your data remains safe in a Docker Volume.
+### 3.1 Create a Persistent Volume
 
-### 4.1 Create a Persistent Volume
-
-Open your Terminal (Mac) or PowerShell (Windows) and run:
+Open your Terminal or PowerShell and run:
 
 ```bash
 docker volume create sarthak_pg_data
 
 ```
 
-### 4.2 Run the PostgreSQL Container
+### 3.2 Run the PostgreSQL Container
 
-Copy and paste this exact command. It configures the port, credentials, and data storage:
+Execute the following command to pull the image and start the server:
 
 ```bash
 docker run -d \
@@ -142,79 +139,70 @@ docker run -d \
 
 ```
 
-<img src="./assets/command.png" alt="Alt text" width="800">
-### 🔍 Command Breakdown:
+<img src="./assets/command.png" alt="Terminal Command Execution" width="800">
 
-* `--name`: The nickname for your container.
-* `-e`: Sets environment variables (User, Password, Database Name).
-* `-p 5432:5432`: Maps your machine's port to the container's port.
-* `-v`: Attaches the volume we created to the internal Postgres data folder.
-* `--restart always`: Ensures the DB starts automatically when you reboot your PC.
+#### **🔍 Command Breakdown:**
 
-<img src="./assets/docker_img.png" alt="Alt text" width="800">
-<img src="./assets/docker_container.png" alt="Alt text" width="800">
+* **`--name`**: Custom name for your container.
+* **`-e`**: Sets your User, Password, and DB Name.
+* **`-p 5432:5432`**: Maps your local port to the container.
+* **`-v`**: Attaches your persistent volume.
+
+<img src="./assets/docker_img.png" alt="Docker Image Pulled" width="800">
+<img src="./assets/docker_container.png" alt="Docker Container Running Status" width="800">
+
 ---
 
-<a name="phase-5"></a>
+## Phase 4: Connecting TablePlus to PostgreSQL
 
-## Phase 5: Connecting TablePlus to PostgreSQL
-
-1. Open **TablePlus**.
-2. Click **"Create a new connection..."** (usually a `+` icon).
-3. Select **PostgreSQL** and click **Create**.
-4. **Fill in the Connection Form:**
+1. Launch **TablePlus** and click the **"+"** (Create a new connection) icon.
+2. Select **PostgreSQL** and click **Create**.
+3. **Enter Connection Details:**
 * **Name:** `Sarthak Local Dev`
-* **Host:** `127.0.0.1` (This means "Your Machine")
+* **Host:** `127.0.0.1`
 * **Port:** `5432`
 * **User:** `sarthak_admin`
 * **Password:** `my_secure_pass_123`
 * **Database:** `dev_database`
 
 
-5. **Security:** Set **SSL Mode** to `Disable` (standard for local dev).
-6. **Test & Connect:** Click **Test**. If the credentials turn green, click **Save** and then **Connect**.
-<img src="./assets/tableplus_connection.png" alt="Alt text" width="800">
-<img src="./assets/tableplus_form.png" alt="Alt text" width="800">
-<img src="./assets/tableplus_dashboard.png" alt="Alt text" width="800">
+4. Set **SSL Mode** to `Disable`.
+5. Click **Test**. Once the fields turn green, click **Save** and **Connect**.
+
+<img src="./assets/tableplus_connection.png" alt="TablePlus New Connection List" width="800">
+<img src="./assets/tableplus_form.png" alt="Filled TablePlus Connection Form" width="800">
+
 ---
 
-<a name="phase-6"></a>
+## Phase 5: Maintenance & Troubleshooting
 
-## Phase 6: Maintenance & Troubleshooting
+### 5.1 Essential Docker Commands
 
-### 6.1 Essential Docker Commands
+* **Check Health:** `docker ps`
+* **Stop DB:** `docker stop local-postgres-dev`
+* **Start DB:** `docker start local-postgres-dev`
 
-Keep these handy for daily management:
+### 5.2 SQL Verification Test
 
-* **Check Status:** `docker ps`
-* **Stop Database:** `docker stop local-postgres-dev`
-* **Start Database:** `docker start local-postgres-dev`
-* **View Error Logs:** `docker logs -f local-postgres-dev`
-
-### 6.2 SQL Verification Test
-
-Once inside TablePlus, press `Cmd + E` (Mac) or `Ctrl + E` (Windows) to open the SQL editor. Run this script to verify everything works:
+In the TablePlus Query Editor (**Cmd + E** / **Ctrl + E**), run:
 
 ```sql
--- 1. Create a Sample Table
 CREATE TABLE developers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     stack VARCHAR(50)
 );
 
--- 2. Insert Your Data
-INSERT INTO developers (name, stack) 
-VALUES ('Sarthak', 'Next.js / PostgreSQL');
-
--- 3. Verify
+INSERT INTO developers (name, stack) VALUES ('Sarthak', 'Next.js / PostgreSQL');
 SELECT * FROM developers;
 
 ```
-<img src="./assets/tableplus_dashboard.png" alt="Alt text" width="800">
-### 6.3 Common Troubleshooting
 
-* **Port 5432 is already in use:** You likely have a local version of Postgres installed outside of Docker. Either stop that service or change the port in the Docker command to `-p 5433:5432`.
-* **TablePlus Connection Failed:** Ensure Docker Desktop is running. Check if the container "local-postgres-dev" is green in the Docker Dashboard.
+<img src="./assets/tableplus_dashboard.png" alt="TablePlus Dashboard with Successful Query" width="800">
+
+### 5.3 Troubleshooting
+
+* **Port 5432 Busy:** Stop any local Postgres services running outside Docker.
+* **WSL Error:** Re-run `wsl --update` and restart Docker Desktop.
 
 ---

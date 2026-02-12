@@ -1,5 +1,5 @@
+## 🐘 Professional SOP: PostgreSQL Environment Setup
 ---
-# 🐘 Professional SOP: PostgreSQL Environment Setup
 
 **Stack:** Docker Desktop + WSL 2 (Windows) / Native (macOS) + TablePlus UI
 **Author:** Sarthak Chauhan

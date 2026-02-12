@@ -38,7 +38,7 @@ Before starting, understand the flow:
 *Note: If you are on macOS, skip to Phase 2.*
 
 Windows requires a Linux backend to run Docker containers natively.
-<img src="./assets/win_wsl_error.png.png" alt="Alt text" width="800">
+<img src="./assets/win_wsl_error.png" alt="Alt text" width="800">
 
 ### 1.1 Enable WSL Features
 
@@ -68,7 +68,7 @@ wsl --set-default-version 2
 ```
 
 ---
-
+<img src="./assets/wsl_update.png" alt="Alt text" width="800">
 <a name="phase-2"></a>
 
 ## Phase 2: Docker Desktop Installation

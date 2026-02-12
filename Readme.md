@@ -3,7 +3,9 @@
 ---
 
 **Stack:** Docker Desktop + WSL 2 (Windows) / Native (macOS) + TablePlus UI
+
 **Author:** Sarthak Chauhan
+
 **Date:** February 12, 2026
 
 ---

@@ -149,6 +149,8 @@ docker run -d \
 * `-v`: Attaches the volume we created to the internal Postgres data folder.
 * `--restart always`: Ensures the DB starts automatically when you reboot your PC.
 
+<img src="./assets/dcoker_img.png" alt="Alt text" width="500">
+<img src="./assets/dcoker_container.png" alt="Alt text" width="500">
 ---
 
 <a name="phase-5"></a>

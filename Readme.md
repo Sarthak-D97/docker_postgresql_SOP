@@ -139,15 +139,7 @@ docker volume create sarthak_pg_data
 Copy and paste this exact command. It configures the port, credentials, and data storage:
 
 ```bash
-docker run -d \
-  --name local-postgres-dev \
-  -e POSTGRES_USER=sarthak_admin \
-  -e POSTGRES_PASSWORD=my_secure_pass_123 \
-  -e POSTGRES_DB=dev_database \
-  -p 5432:5432 \
-  -v sarthak_pg_data:/var/lib/postgresql/data \
-  --restart always \
-  postgres:latest
+docker run --name my-postgres-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=secretpassword -e POSTGRES_DB=testdb -p 5432:5432 -d postgres:latest
 
 ```
 

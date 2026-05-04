@@ -125,16 +125,8 @@ wsl --set-default-version 2
 
 We will deploy PostgreSQL with **Data Persistence**. This ensures that if you delete the container, your data remains safe in a Docker Volume.
 
-### 4.1 Create a Persistent Volume
 
-Open your Terminal (Mac) or PowerShell (Windows) and run:
-
-```bash
-docker volume create sarthak_pg_data
-
-```
-
-### 4.2 Run the PostgreSQL Container
+### 4.1 Run the PostgreSQL Container
 
 Copy and paste this exact command. It configures the port, credentials, and data storage:
 

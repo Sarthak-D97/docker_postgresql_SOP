@@ -158,12 +158,12 @@ docker run --name my-postgres-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=sec
 2. Click **"Create a new connection..."** (usually a `+` icon).
 3. Select **PostgreSQL** and click **Create**.
 4. **Fill in the Connection Form:**
-* **Name:** `Sarthak Local Dev`
-* **Host:** `127.0.0.1` (This means "Your Machine")
+* **Name:** `My Local Dev`
+* **Host:** `localhost` (This means "Your Machine")
 * **Port:** `5432`
-* **User:** `sarthak_admin`
-* **Password:** `my_secure_pass_123`
-* **Database:** `dev_database`
+* **User:** `admin`
+* **Password:** `secretpassword`
+* **Database:** `testdb`
 
 
 5. **Security:** Set **SSL Mode** to `Disable` (standard for local dev).
